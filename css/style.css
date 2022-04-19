@@ -147,7 +147,7 @@ body {
   border-radius: 50%;
   color: white;
   border: 5px white solid;
-  outline: 1px solid rgba(0, 0, 0, 0.198);
+  outline: 2px solid rgba(0, 0, 0, 0.198);
   transition: 0.5s;
 }
 .box span:first-child i {
