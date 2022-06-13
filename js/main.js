@@ -1,3 +1,6 @@
+    window.addEventListener("load" , ()=> {
+        registerSW()
+    })
         let x = '<span class="x"><i class="fa-solid fa-xmark"></i></span>'
         let o = '<span class="o"><i class="fa-solid fa-o"></i></span>' 
         let tie = document.querySelector('.counter-tie')
@@ -217,4 +220,12 @@
             document.body.classList.toggle('darkmode')
         ; })
 
-    
+    async function  registerSW() {
+        if ('serviceWorker' in navigator) {
+            try {
+                await navigator.serviceWorker.register("../js/sw.js")
+            } catch (e) {
+                console.log("SW registration failed");
+            }
+        }
+    }
