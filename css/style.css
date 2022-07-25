@@ -171,6 +171,7 @@ body {
   outline: 2px solid hsl(0deg 0% 60%);
   border-radius: 50px;
   padding: 0px 20px;
+  cursor: pointer;
 }
 .bottom h1 {
   font-size: 26px;
