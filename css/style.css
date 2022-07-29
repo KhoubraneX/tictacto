@@ -21,6 +21,9 @@ body {
   font-family: "Cairo", sans-serif;
   background-color: var(---back-color);
 }
+h2 {
+  white-space: nowrap;
+}
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -103,6 +106,21 @@ body {
   align-items: center;
   padding-bottom: 50px;
 }
+.message {
+  position: absolute;
+  font-size: 24px;
+  color: hsl(0deg 0% 60%);
+  background: aliceblue;
+  text-align: center;
+  max-width: 190px;
+  text-transform: capitalize;
+  border-radius: 5px;
+  width: 100%;
+  box-shadow: 0px 0px 10px 0px #0000003b;
+  cursor: pointer;
+  z-index: 500;
+  display: none;
+}
 .box {
   border: 2px solid var(--color-line-);
   width: 120px;
@@ -177,6 +195,7 @@ body {
   font-size: 26px;
   color: hsl(0deg 0% 60%);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .gear-s {
   position: relative;

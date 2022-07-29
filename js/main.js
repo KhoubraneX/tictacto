@@ -40,6 +40,7 @@ switchType.addEventListener("click", function () {
         typeOfgame = 2
     }
     refrechAll()
+    message.style.display = "none"
 })
 
 
@@ -49,6 +50,7 @@ function checkequal() {
         document.querySelector('.borde').setAttribute('style', 'animation: scale infinite linear 0.5s;')
         tie.innerHTML = tiecounter += 1
         end = true
+        message.style.display = "block"
     } else {
         counter += 1
     }
@@ -67,32 +69,38 @@ function checkwin() {
         scale('line1', 'line1', 'line1', 1, 2, 3)
         player2.innerHTML = res2 += 1
         end = true
+        message.style.display = "block"
     }
     if (listp1[0].innerHTML == x && listp1[1].innerHTML == x && listp1[2].innerHTML == x) {
         scale('line1', 'line1', 'line1', 1, 2, 3)
         player1.innerHTML = res1 += 1
         end = true
+        message.style.display = "block"
     }
 
     if (listp2[0].innerHTML == x && listp2[1].innerHTML == x && listp2[2].innerHTML == x) {
         scale('line2', 'line2', 'line2', 1, 2, 3)
         player1.innerHTML = res1 += 1
         end = true
+        message.style.display = "block"
     }
     if (listp2[0].innerHTML == o && listp2[1].innerHTML == o && listp2[2].innerHTML == o) {
         scale('line2', 'line2', 'line2', 1, 2, 3)
         player2.innerHTML = res2 += 1
         end = true
+        message.style.display = "block"
     }
     if (listp3[0].innerHTML == x && listp3[1].innerHTML == x && listp3[2].innerHTML == x) {
         scale('line3', 'line3', 'line3', 1, 2, 3)
         player1.innerHTML = res1 += 1
         end = true
+        message.style.display = "block"
     }
     if (listp3[0].innerHTML == o && listp3[1].innerHTML == o && listp3[2].innerHTML == o) {
         scale('line3', 'line3', 'line3', 1, 2, 3)
         player2.innerHTML = res2 += 1
         end = true
+        message.style.display = "block"
     }
 
     // rows 2
@@ -101,35 +109,40 @@ function checkwin() {
         scale('line1', 'line2', 'line3', 1, 1, 1)
         player2.innerHTML = res2 += 1
         end = true
+        message.style.display = "block"
     }
     if (listp1[0].innerHTML == x && listp2[0].innerHTML == x && listp3[0].innerHTML == x) {
         scale('line1', 'line2', 'line3', 1, 1, 1)
         player1.innerHTML = res1 += 1
         end = true
+        message.style.display = "block"
     }
     if (listp1[1].innerHTML == o && listp2[1].innerHTML == o && listp3[1].innerHTML == o) {
         scale('line1', 'line2', 'line3', 2, 2, 2)
         player2.innerHTML = res2 += 1
         end = true
+        message.style.display = "block"
 
     }
     if (listp1[1].innerHTML == x && listp2[1].innerHTML == x && listp3[1].innerHTML == x) {
         scale('line1', 'line2', 'line3', 2, 2, 2)
         player1.innerHTML = res1 += 1
         end = true
+        message.style.display = "block"
 
     }
     if (listp1[2].innerHTML == o && listp2[2].innerHTML == o && listp3[2].innerHTML == o) {
         scale('line1', 'line2', 'line3', 3, 3, 3)
         player2.innerHTML = res2 += 1
         end = true
+        message.style.display = "block"
 
     }
     if (listp1[2].innerHTML == x && listp2[2].innerHTML == x && listp3[2].innerHTML == x) {
         scale('line1', 'line2', 'line3', 3, 3, 3)
         player1.innerHTML = res1 += 1
         end = true
-
+        message.style.display = "block"
     }
 
     // extr
@@ -138,26 +151,26 @@ function checkwin() {
         scale('line1', 'line2', 'line3', 1, 2, 3)
         player2.innerHTML = res2 += 1
         end = true
-
-
+        message.style.display = "block"
     }
     if (listp1[0].innerHTML == x && listp2[1].innerHTML == x && listp3[2].innerHTML == x) {
         scale('line1', 'line2', 'line3', 1, 2, 3)
         player1.innerHTML = res1 += 1
         end = true
-
+        message.style.display = "block"
     }
 
     if (listp1[2].innerHTML == o && listp2[1].innerHTML == o && listp3[0].innerHTML == o) {
         scale('line1', 'line2', 'line3', 3, 2, 1)
         player2.innerHTML = res2 += 1
         end = true
-
+        message.style.display = "block"
     }
     if (listp1[2].innerHTML == x && listp2[1].innerHTML == x && listp3[0].innerHTML == x) {
         scale('line1', 'line2', 'line3', 3, 2, 1)
         player1.innerHTML = res1 += 1
         end = true
+        message.style.display = "block"
     }
 }
 
@@ -178,7 +191,6 @@ function showturn() {
     };
 };
 
-const intialBord = Array.from(document.querySelectorAll(".borde p"))
 
 let bordComputer = Array.from(document.querySelectorAll(".borde p"))
 
@@ -221,7 +233,7 @@ document.querySelectorAll('.borde p').forEach(function (x_o) {
                     }
                     showturn()
                 }
-        }
+            }
         } else if (typeOfgame == 1) {
             if (end != true) {
                 if (x_o.innerHTML != x && x_o.innerHTML != o) {
@@ -267,16 +279,36 @@ again.addEventListener('click', () => {
 let rotate = document.querySelector('.rotate')
 rotate.addEventListener('click', () => {
     refrechAll()
+    message.style.display = "none"
 })
+
+let message = document.querySelector(".message")
+message.addEventListener('click', () => {
+    refrech()
+    message.style.display = "none"
+})
+
+function refrech() {
+    document.querySelectorAll('.borde p span').forEach((x) => {
+        x.remove()
+        end = false
+        counter = 0
+    })
+    document.querySelector('.borde').setAttribute('style', 'animation: ;')
+    bordComputer = Array.from(document.querySelectorAll(".borde p"))
+}
 
 function refrechAll() {
     document.querySelectorAll('.borde p span').forEach((x) => {
         x.remove()
         end = false
         counter = 0
-        document.querySelector('.borde').setAttribute('style', 'animation: ;')
     })
-    bordComputer = intialBord
+    document.querySelectorAll(".top div h2 span").forEach(e => e.innerHTML = 0)
+
+    document.querySelector('.borde').setAttribute('style', 'animation: ;')
+
+    bordComputer = Array.from(document.querySelectorAll(".borde p"))
 }
 
 // dark mode
